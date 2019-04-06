@@ -58,7 +58,7 @@ body.open #menu
 	left: 0;
 }
 
-.page-wrap
+.page-author
 { 
 	padding: 50px;
 	-webkit-box-sizing: border-box;
@@ -69,7 +69,7 @@ body.open #menu
 	-o-transition: all .3s ease-in;
 	transition: all .3s ease-in;
 }
-body.open .page-wrap {
+body.open .page-author .page-book {
 	margin-left: 300px;
 }
 
@@ -79,9 +79,11 @@ button:focus
 }
 #menu-toggle
 {
-	position: relative;
+	position: fixed;
 	width: 51px;
 	height: 51px;
+	top: 15;
+	left: 15;
 	cursor: pointer;
 	border: none;
 	-webkit-border-radius: 50px;
