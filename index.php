@@ -46,6 +46,7 @@
 			<div class="row">
 				<table class="table table-hover table-bordered">
 					<tr>
+						<td>id_author</td>
 						<td>Имя</td>
 						<td>Дата Рождения</td>
 						<td>Количество книг</td>
@@ -60,6 +61,7 @@
 				
 	$zap1 = "
 	select 
+		author.id_author,
 		author.name,
 		author.burthday,
 		count(book.id_book),
@@ -82,14 +84,20 @@
 		{
 echo <<<here
 		<tr>
-			<td>$row[0]</td>
-			<td>$row[1]</td>
-			<td>$row[2]</td>
-			<td>$row[3]</td>
+			<td id="1">$row[0]</td>
+			<td><input autocomplete="off" type="text" value="$row[1]" name="av_name"></td>
+			<td><input autocomplete="off" type="text" value="$row[2]" name="av_brday"></td>
+			<td id="1">$row[3]</td>
+			<td>$row[4]</td>
 			<td><button type="button">Изменить</button></td>
 			<td><button type="button">Удалить</button></td>
 		</tr>
+			
 here;
+			if( isset( $_POST['my_button'] ) )
+			{
+				
+			}
 		}
 ?>
 </div>
@@ -104,6 +112,7 @@ here;
 				<table class="table table-hover table-bordered">
 					<tr>
 						<td>Название</td>
+						<td>id_автор</td>
 						<td>Автор</td>
 						<td>Количество страниц</td>
 						<td>Средний рейтинг</td>
@@ -118,6 +127,7 @@ here;
 	$zap2 = "
 	select 
 		book.name,
+		author.id_author,
 		author.name,
 		book.number_of_pages,
 		avg(assessment.assessment)
@@ -139,9 +149,10 @@ here;
 		{
 echo <<<here
 		<tr>
-			<td>$row[0]</td>
-			<td>$row[1]</td>
+			<td><input autocomplete="off" type="text" value="$row[0]" name="bk_name"></td>
+			<td><input autocomplete="off" type="text" value="$row[1]" name="av_id" style="width: 80"></td>
 			<td>$row[2]</td>
+			<td>$row[3]</td>
 			<td>$row[3]</td>
 			<td><button type="button">Изменить</button></td>
 			<td><button type="button">Удалить</button></td>
